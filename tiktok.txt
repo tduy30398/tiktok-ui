@@ -2,3 +2,4 @@ Các thư viện:
 customize-cra: dùng để cấu hình webpack
 babel-plugin-module-resolver: dùng để sử dụng alias khi import file
 prettier: giúp format lại các file code như html, css, json
+normalize: reset css
