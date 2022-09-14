@@ -1,9 +1,15 @@
 import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCircleXmark,
+    faMagnifyingGlass,
+    faSignIn,
+    faSpinner,
+} from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 import classNames from 'classnames/bind';
 
+import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
@@ -30,9 +36,15 @@ function Header() {
                     interactive
                     visible={searchResult.length > 0}
                     render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex="-1" {...attrs}>
+                        <div
+                            className={cx('search-result')}
+                            tabIndex="-1"
+                            {...attrs}
+                        >
                             <PopperWrapper>
-                                <div className={cx('search-title')}>Accounts</div>
+                                <div className={cx('search-title')}>
+                                    Accounts
+                                </div>
                                 <AccountItem />
                                 <AccountItem />
                                 <AccountItem />
@@ -43,9 +55,9 @@ function Header() {
                 >
                     <div className={cx('search')}>
                         <input placeholder="Search accounts and videos" />
-                        <button className={cx('clear')}>
+                        {/* <button className={cx('clear')}>
                             <FontAwesomeIcon icon={faCircleXmark} />
-                        </button>
+                        </button> */}
                         {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
                         <button className={cx('search-btn')}>
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
@@ -53,7 +65,8 @@ function Header() {
                     </div>
                 </Tippy>
                 <div className={cx('actions')}>
-                    <button>Click</button>
+                    <Button text>Upload</Button>
+                    <Button primary>Log in</Button>
                 </div>
             </div>
         </header>

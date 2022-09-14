@@ -5,3 +5,5 @@ prettier: giúp format lại các file code như html, css, json
 normalize: reset css
 tippy: tooltip
 
+
+làm lại  upload btn
