@@ -4,21 +4,21 @@
     justify-content: center;
     min-width: 100px;
     padding: 9px 16px;
+    border-radius: 4px;
     font-size: 1.6rem;
     font-weight: 700;
-    border-radius: 4px;
     cursor: pointer;
     background-color: var(--white);
     border: 1px solid transparent;
+    user-select: none;
 
     + .wrapper {
-        margin-left: 16px;
+        margin-left: 8px;
     }
 
     &.disabled {
         pointer-events: none;
         opacity: 0.5;
-        user-select: none;
     }
 }
 
@@ -27,16 +27,17 @@
     margin-left: 8px;
 }
 
-//Button types
+.icon {
+    display: inline-block;
+    width: 20px;
+    text-align: center;
+}
 
+// Button types
 .rounded {
+    border-radius: 999px;
     box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
-    border-radius: 52px;
     border-color: rgba(22, 24, 35, 0.12);
-    color: rgba(22, 24, 35, 0.75);
-    font-size: 1.4rem;
-    height: 32px;
-    padding: 0 8px;
 
     &:hover {
         border-color: rgba(22, 24, 35, 0.2);
@@ -51,12 +52,7 @@
 
     &:hover {
         border-color: var(--primary);
-        background: linear-gradient(
-                0deg,
-                rgba(0, 0, 0, 0.06),
-                rgba(0, 0, 0, 0.06)
-            ),
-            #fe2c55;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
     }
 }
 
@@ -71,19 +67,20 @@
 }
 
 .text {
-    :hover {
+    &:hover {
         text-decoration: underline;
     }
 }
 
-// Button sizes
+// Disabled
 
+// Button sizes
 .small {
     min-width: 88px;
     padding: 4px 16px;
 }
 
 .large {
-    min-width: 140px;
     padding: 14px 16px;
+    min-width: 140px;
 }
