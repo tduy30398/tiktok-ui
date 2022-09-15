@@ -41,6 +41,7 @@ function Menu({ children, items = [], onChange = defaultFunc }) {
         <Tippy
             interactive
             delay={[0, 700]}
+            offset={[12, 8]}
             placement="bottom-end"
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
@@ -49,7 +50,8 @@ function Menu({ children, items = [], onChange = defaultFunc }) {
                             <Header
                                 title="Language"
                                 onBack={() => {
-                                    // Lấy về mảng trừ đi phần tử cuối cùng
+                                    // Khi click vào nút back thì quay về 1 trang,
+                                    // ta sẽ lấy về mảng trừ đi phần tử cuối cùng
                                     setHistory((prev) => prev.slice(0, prev.length - 1));
                                 }}
                             />
@@ -58,6 +60,8 @@ function Menu({ children, items = [], onChange = defaultFunc }) {
                     </PopperWrapper>
                 </div>
             )}
+            // Khi ẩn thì quay lại trang đầu, lấy phần tử đầu tiên
+            onHide={() => setHistory((prev) => prev.slice(0, 1))}
         >
             {children}
         </Tippy>
