@@ -9,4 +9,5 @@ font awesome
 setTimeout(() => {debugger}, 2000)
 
 cái bug khi nút ba chấm khi chưa đăng nhập
+fallback
 làm lại  upload btn
