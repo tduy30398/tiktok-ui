@@ -5,6 +5,7 @@ import styles from './Menu.module.scss';
 
 const cx = classNames.bind(styles);
 
+// Header của menu
 function Header({ title, onBack }) {
     return (
         <header className={cx('header')}>

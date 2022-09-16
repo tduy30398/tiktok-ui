@@ -36,7 +36,6 @@ function Menu({ children, items = [], onChange = defaultFunc }) {
             );
         });
     };
-
     return (
         <Tippy
             interactive

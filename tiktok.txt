@@ -4,6 +4,9 @@ babel-plugin-module-resolver: dùng để sử dụng alias khi import file
 prettier: giúp format lại các file code như html, css, json
 normalize: reset css
 tippy: tooltip
+font awesome
 
+setTimeout(() => {debugger}, 2000)
 
+cái bug khi nút ba chấm khi chưa đăng nhập
 làm lại  upload btn
