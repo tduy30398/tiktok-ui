@@ -18,6 +18,10 @@
     padding: 0 var(--default-layout-horizontal-spacer);
 }
 
+.logo {
+    cursor: pointer;
+}
+
 // Actions
 .actions {
     display: flex;
