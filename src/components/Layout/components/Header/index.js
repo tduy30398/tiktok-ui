@@ -47,6 +47,61 @@ const MENU_ITEMS = [
                     code: 'sp',
                     title: 'Spanish',
                 },
+                {
+                    type: 'language',
+                    code: 'tl',
+                    title: 'Thai',
+                },
+                {
+                    type: 'language',
+                    code: 'ja',
+                    title: 'Japanese',
+                },
+                {
+                    type: 'language',
+                    code: 'ko',
+                    title: 'Korean',
+                },
+                {
+                    type: 'language',
+                    code: 'cn',
+                    title: 'Chinese',
+                },
+                {
+                    type: 'language',
+                    code: 'rs',
+                    title: 'Russia',
+                },
+                {
+                    type: 'language',
+                    code: 'arg',
+                    title: 'Argentine',
+                },
+                {
+                    type: 'language',
+                    code: 'bra',
+                    title: 'Brazilian',
+                },
+                {
+                    type: 'language',
+                    code: 'fr',
+                    title: 'France',
+                },
+                {
+                    type: 'language',
+                    code: 'por',
+                    title: 'Portuguese',
+                },
+                {
+                    type: 'language',
+                    code: 'arb',
+                    title: 'Arabia',
+                },
+                {
+                    type: 'language',
+                    code: 'ida',
+                    title: 'Indian',
+                },
             ],
         },
     },
