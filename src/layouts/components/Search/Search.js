@@ -16,15 +16,15 @@ const cx = classNames.bind(styles);
 function Search() {
     const [searchValue, setSearchValue] = useState('');
     const [searchResult, setSearchResult] = useState([]);
-    const [showResults, setShowResults] = useState(true);
+    const [showResults, setShowResults] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    const debounce = useDebounce(searchValue, 600);
+    const debouncedValue = useDebounce(searchValue, 600);
 
     const inputRef = useRef();
 
     useEffect(() => {
-        if (!debounce) {
+        if (!debouncedValue) {
             setSearchResult([]);
             return;
         }
@@ -32,7 +32,7 @@ function Search() {
         const fetchApi = async () => {
             setLoading(true);
 
-            const result = await searchService.search(debounce);
+            const result = await searchService.search(debouncedValue);
 
             setSearchResult(result);
 
@@ -40,7 +40,7 @@ function Search() {
         };
 
         fetchApi();
-    }, [debounce]);
+    }, [debouncedValue]);
 
     // Xử lý khi bấm nút clear (nút X)
     const handleClear = () => {

@@ -28,6 +28,7 @@ function Menu({ children, hideOnClick = false, items = [], onChange = defaultFun
                     data={item}
                     onClick={() => {
                         if (isParent) {
+                            // Nếu item có children thì di chuyển đến trang children
                             setHistory((prev) => [...prev, item.children]);
                         } else {
                             onChange(item);
@@ -37,6 +38,27 @@ function Menu({ children, hideOnClick = false, items = [], onChange = defaultFun
             );
         });
     };
+
+    // Khi click vào nút back thì quay về 1 trang,
+    // ta sẽ lấy về mảng trừ đi phần tử cuối cùng
+    const handleBack = () => {
+        setHistory((prev) => prev.slice(0, prev.length - 1));
+    };
+
+    const renderResults = (attrs) => (
+        <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
+            <PopperWrapper className={cx('menu-popper')}>
+                {history.length > 1 && <Header title={current.title} onBack={handleBack} />}
+                <div className={cx('menu-body')}>{renderItems()}</div>
+            </PopperWrapper>
+        </div>
+    );
+
+    // Khi ẩn thì quay lại trang đầu, lấy phần tử đầu tiên
+    const handleReset = () => {
+        setHistory((prev) => prev.slice(0, 1));
+    };
+
     return (
         <Tippy
             interactive
@@ -44,25 +66,8 @@ function Menu({ children, hideOnClick = false, items = [], onChange = defaultFun
             offset={[12, 8]}
             hideOnClick={hideOnClick}
             placement="bottom-end"
-            render={(attrs) => (
-                <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
-                    <PopperWrapper className={cx('menu-popper')}>
-                        {history.length > 1 && (
-                            <Header
-                                title={current.title}
-                                onBack={() => {
-                                    // Khi click vào nút back thì quay về 1 trang,
-                                    // ta sẽ lấy về mảng trừ đi phần tử cuối cùng
-                                    setHistory((prev) => prev.slice(0, prev.length - 1));
-                                }}
-                            />
-                        )}
-                        <div className={cx('menu-body')}>{renderItems()}</div>
-                    </PopperWrapper>
-                </div>
-            )}
-            // Khi ẩn thì quay lại trang đầu, lấy phần tử đầu tiên
-            onHide={() => setHistory((prev) => prev.slice(0, 1))}
+            render={renderResults}
+            onHide={handleReset}
         >
             {children}
         </Tippy>
