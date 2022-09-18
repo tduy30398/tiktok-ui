@@ -9,9 +9,7 @@ import PropTypes from 'prop-types';
 
 const cx = classNames.bind(styles);
 
-const defaultFunc = () => {};
-
-function Menu({ children, hideOnClick = false, items = [], onChange = defaultFunc }) {
+function Menu({ children, hideOnClick = false, items = [], onChange }) {
     // Đặt key là data vì: đầu tiên là ở cấp ngoài (MENU_ITEMS),
     // có dạng: const MENU_ITEMS = data: [...], khi lấy children ở trong
     // thì chidlren ở trong vẫn có dạng tương tự như vậy nên có thể xài với
@@ -61,6 +59,7 @@ function Menu({ children, hideOnClick = false, items = [], onChange = defaultFun
 
     return (
         <Tippy
+            visible={false}
             interactive
             delay={[0, 700]}
             offset={[12, 8]}

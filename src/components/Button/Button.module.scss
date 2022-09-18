@@ -8,6 +8,7 @@
     font-size: 1.6rem;
     font-weight: 700;
     cursor: pointer;
+    max-height: 36px;
     font-family: var(--font-family);
     background-color: var(--white);
     border: 1px solid transparent;
@@ -28,9 +29,13 @@
     margin-left: 8px;
 }
 
+.title {
+    padding-bottom: 4px;
+}
+
 .icon {
     display: inline-block;
-    width: 20px;
+    width: 24px;
     text-align: center;
 }
 
